@@ -8,10 +8,9 @@ import kotlinx.android.synthetic.main.movie_list.view.*
 
 class MainAdapter:RecyclerView.Adapter<CustomViewHolder>(){
 
-    val filmTitles = listOf("First title", "Second title")
-    //numberOfItems
+    var numberOfItems = 1
     override fun getItemCount(): Int {
-        return filmTitles.size
+        return numberOfItems
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CustomViewHolder {
@@ -22,14 +21,10 @@ class MainAdapter:RecyclerView.Adapter<CustomViewHolder>(){
     }
 
     override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
-        val filmTitle = filmTitles.get(p1)
-        p0.itemView.film_view_title.text = filmTitle
+        //val filmTitle = filmTitles.get(p1)
+        //p0.itemView.film_view_title.text = filmTitle
     }
 
-    /*override fun onBindViewHolder(holder: CustomViewHolder, position: Int, payloads: MutableList<Any>) {
-        val filmTitle = filmTitles.get(position)
-        holder.itemView.film_view_title.text = filmTitle
-    }*/
 
 }
 
