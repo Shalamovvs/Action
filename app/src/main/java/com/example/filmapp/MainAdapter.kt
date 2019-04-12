@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.movie_list.view.*
 
-class MainAdapter:RecyclerView.Adapter<CustomViewHolder>(){
+class MainAdapter(var numbers:Int):RecyclerView.Adapter<CustomViewHolder>(){
 
-    var numberOfItems = 1
     override fun getItemCount(): Int {
-        return numberOfItems
+        return numbers
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CustomViewHolder {

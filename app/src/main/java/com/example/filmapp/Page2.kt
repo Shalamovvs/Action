@@ -17,7 +17,7 @@ class Page2 : AppCompatActivity() {
         setContentView(R.layout.activity_page2)
 
         recyclerView_Second.layoutManager = LinearLayoutManager(this)
-        recyclerView_Second.adapter = MainAdapter()
+        recyclerView_Second.adapter = MainAdapter(numbers)
     }
 
     fun openPage(view: View)
@@ -25,15 +25,13 @@ class Page2 : AppCompatActivity() {
         val changePage = Intent(this, MainActivity::class.java)
         startActivity(changePage)
     }
-    var numbers = 0
+    var numbers = 1
     fun sendDetails(view: View)
     {
         numbers += 1
         val filmTitles = textName
         val filmYear = textYear
-        //var film_view_title = emptyArray<EditText>()
         //var film_view_year = emptyArray<EditText>()
-        intent.putExtra("numbers", numbers)
         //film_view_title[numbers].text = filmTitles.text
         //film_view_year[numbers].text = filmTitles.text
         film_view_title.text = filmTitles.text
