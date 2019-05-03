@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.movie_list.view.*
 
-class MainAdapter(var numbers:Int):RecyclerView.Adapter<CustomViewHolder>(){
+class MainAdapter(val nameList:ArrayList<Model>):RecyclerView.Adapter<CustomViewHolder>(){
 
     override fun getItemCount(): Int {
-        return numbers
+        return nameList.size
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CustomViewHolder {
@@ -19,14 +19,13 @@ class MainAdapter(var numbers:Int):RecyclerView.Adapter<CustomViewHolder>(){
 
     }
 
-    override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
-        //val filmTitle = filmTitles.get(p1)
-        //p0.itemView.film_view_title.text = filmTitle
+
+    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
+        holder.view.film_view_title.text = nameList[position].name
+        holder.view.film_view_year.text = nameList[position].year
     }
-
-
 }
 
-class CustomViewHolder(v: View): RecyclerView.ViewHolder(v){
+class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view){
 
 }

@@ -12,12 +12,12 @@ import kotlinx.android.synthetic.main.movie_list.view.*
 
 class Page2 : AppCompatActivity() {
 
+    val nameList:ArrayList<Model> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page2)
-
         recyclerView_Second.layoutManager = LinearLayoutManager(this)
-        recyclerView_Second.adapter = MainAdapter(numbers)
+        recyclerView_Second.adapter = MainAdapter(nameList)
     }
 
     fun openPage(view: View)
@@ -25,17 +25,17 @@ class Page2 : AppCompatActivity() {
         val changePage = Intent(this, MainActivity::class.java)
         startActivity(changePage)
     }
-    var numbers = 1
+    fun restart(view: View)
+    {
+        recyclerView_Second.removeAllViewsInLayout();
+    }
+
     fun sendDetails(view: View)
     {
-        numbers += 1
-        val filmTitles = textName
-        val filmYear = textYear
-        //var film_view_year = emptyArray<EditText>()
-        //film_view_title[numbers].text = filmTitles.text
-        //film_view_year[numbers].text = filmTitles.text
-        film_view_title.text = filmTitles.text
-        film_view_year.text = filmYear.text
+        var filmTitles = textName.text
+        var filmYear = textYear.text
+        nameList.add(Model(filmTitles.toString(),filmYear.toString()))
+        recyclerView_Second.adapter!!.notifyDataSetChanged()
     }
 
 }
