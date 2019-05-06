@@ -42,7 +42,7 @@ class Page3 : AppCompatActivity(){
                 val gson = GsonBuilder().create()
                 val homeFeed = gson.fromJson(body, HomeFeed::class.java)
                 runOnUiThread {
-                    main_Recycler.adapter = SecondAdapter(homeFeed) }
+                    main_Recycler.adapter = SecondAdapter(homeFeed)}
             }
             override fun onFailure(call: Call, e: IOException) {
             }
