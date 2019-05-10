@@ -9,6 +9,9 @@ import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_page2.*
 import kotlinx.android.synthetic.main.movie_list.*
 import kotlinx.android.synthetic.main.movie_list.view.*
+import android.text.method.TextKeyListener.clear
+
+
 
 class Page2 : AppCompatActivity() {
 
@@ -27,7 +30,8 @@ class Page2 : AppCompatActivity() {
     }
     fun restart(view: View)
     {
-        recyclerView_Second.removeAllViewsInLayout();
+        recyclerView_Second.clearOnChildAttachStateChangeListeners()
+        //recyclerView_Second.removeAllViewsInLayout();
     }
 
     fun sendDetails(view: View)

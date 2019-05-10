@@ -5,6 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.movie_list.view.*
+import android.text.method.TextKeyListener.clear
+import android.text.method.TextKeyListener.clear
+
+
+
+
 
 class MainAdapter(val nameList:ArrayList<Model>):RecyclerView.Adapter<CustomViewHolder>(){
 

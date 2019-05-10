@@ -21,8 +21,9 @@ class SecondAdapter(val homeFeed:HomeFeed): RecyclerView.Adapter<CustomViewHolde
 
     override fun onBindViewHolder(holder: CustomViewHolderBase, position: Int) {
         val film = homeFeed.results.get(position)
-        holder.view.movie_view_title.text = film.original_title
-        holder.view.movie_view_year.text = film.release_date
+        holder.view.movie_view_title.text = film.title
+        Picasso.get().load("https://image.tmdb.org/t/p/w600_and_h900_bestv2"+film.poster_path).into(holder.view.posterView);
+        holder.view.overviewView.text = film.overview
     }
 }
 class CustomViewHolderBase(val view:View): RecyclerView.ViewHolder(view){
