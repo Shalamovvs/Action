@@ -12,8 +12,7 @@ import android.text.method.TextKeyListener.clear
 
 
 
-class MainAdapter(val nameList:ArrayList<Model>):RecyclerView.Adapter<CustomViewHolder>(){
-
+class MainAdapter(val nameList:ArrayList<String>):RecyclerView.Adapter<CustomViewHolder>(){
     override fun getItemCount(): Int {
         return nameList.size
     }
@@ -27,8 +26,11 @@ class MainAdapter(val nameList:ArrayList<Model>):RecyclerView.Adapter<CustomView
 
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.view.film_view_title.text = nameList[position].name
-        holder.view.film_view_year.text = nameList[position].year
+
+        val item = nameList.get(position)
+        val splittedText = item.split("\n")
+        holder.view.film_view_title.text = splittedText.get(0)
+        holder.view.film_view_year.text = splittedText.get(1)
     }
 }
 
